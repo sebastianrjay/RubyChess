@@ -24,7 +24,7 @@ class Game
   def play
     until board.checkmate?(players[turn])
       system "clear"
-      print "Welcome to RubyChess. Use the arrow keys to move the cursor, and press
+      print "\nWelcome to RubyChess. Use the arrow keys to move the cursor, and press
 enter to select or unselect a piece. Once a piece is selected, select the
 position to which you would like to move the piece. White pieces move
 first. Press CONTROL-C to quit.\n\n"
