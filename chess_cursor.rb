@@ -27,8 +27,4 @@ class Cursor
     end
     position
   end
-
-  # def in_bounds?
-  #   (0..7) === position[0] && (0..7) === position[1]
-  # end
 end

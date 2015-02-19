@@ -33,7 +33,7 @@ first. Press CONTROL-C to quit.\n\n"
       begin
       input_char = read_char
 
-      #get controller input and perform functions
+      # get controller input and perform functions
       case input_char
       when "\r" #RETURN
         x, y = cursor.position
@@ -83,7 +83,7 @@ first. Press CONTROL-C to quit.\n\n"
         retry
       end
     end
-    puts "Checkmate #{players[turn].color.to_s}, you got destroyed"
+    puts "\nGAME OVER\n\n#{players[turn].color.to_s.capitalize} loses.\n"
   end
 
   def display
@@ -94,10 +94,16 @@ first. Press CONTROL-C to quit.\n\n"
         cursor = true if [x, y] == [i, j]
         selected = true if [s_x, s_y] == [i, j]
 
-        if el.nil?
-          saved_display = "| "
+        if (i + j) % 2 == 0
+          bkgd = :light_cyan
         else
-          saved_display = "|" + el.symbol
+          bkgd = :light_black
+        end
+
+        if el.nil?
+          saved_display = "   "
+        else
+          saved_display = " " + el.symbol.bold + " "
         end
 
         if cursor
@@ -106,13 +112,13 @@ first. Press CONTROL-C to quit.\n\n"
           print saved_display.blue.on_red
         else
           unless el.nil?
-            print saved_display.colorize(el.color).colorize(background: :red)
+            print saved_display.colorize(el.color).colorize(background: bkgd)
           else
-            print saved_display.colorize(background: :red)
+            print saved_display.colorize(background: bkgd)
           end
         end
       end
-      puts "|".colorize(background: :red)
+      puts
     end
     puts
   end
