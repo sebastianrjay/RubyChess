@@ -35,7 +35,7 @@ first. Press CONTROL-C to quit.\n\n"
 
       # get controller input and perform functions
       case input_char
-      when "\r" #RETURN
+      when "\r" # RETURN
         x, y = cursor.position
         if cursor.selected_position.nil?
           unless board.grid[x][y].nil?
@@ -50,7 +50,7 @@ first. Press CONTROL-C to quit.\n\n"
           self.turn = turn == 0 ? 1 : 0
           cursor.selected_position = nil
         end
-      when "\e"
+      when "\e" # ESCAPE
         puts "Are you sure you want to exit the game? (y/n)"
         if gets.chomp == "y"
           exit
@@ -83,7 +83,7 @@ first. Press CONTROL-C to quit.\n\n"
         retry
       end
     end
-    puts "\nGAME OVER\n\n#{players[turn].color.to_s.capitalize} loses.\n"
+    puts "\nGAME OVER\n\nCHECKMATE #{players[turn].color.to_s.upcase}\n\n"
   end
 
   def display

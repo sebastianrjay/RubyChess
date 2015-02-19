@@ -39,12 +39,11 @@ class Piece
       old_board.grid[next_i][next_j], old_board.grid[i][j] = old_board.grid[i][j], old_board.grid[next_i][next_j]
       old_board.grid[i][j] = nil
 
-      piece_valid_moves << [next_i,next_j] unless old_board.in_check?(player)
+      piece_valid_moves << [next_i,next_j]
 
     end
     piece_valid_moves
   end
-
 end
 
 class SlidingPiece < Piece

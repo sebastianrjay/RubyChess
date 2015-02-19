@@ -114,7 +114,7 @@ class Board
     grid.each_with_index do |row, i|
       row.each_with_index do |el, j|
         next if el.nil?
-        if el.symbol == "K" && player.color == el.color
+        if el.is_a?(King) && player.color == el.color
           king_position = [i, j]
           break
         end
@@ -133,8 +133,14 @@ class Board
   end
 
   def checkmate? player
-    all_valid_moves(player).empty?
+    grid.each_with_index do |row, i|
+      row.each_with_index do |el, j|
+        next if el.nil?
+        if el.is_a?(King) && player.color == el.color
+          return false
+        end
+      end
+    end
+    true
   end
-
-
 end
