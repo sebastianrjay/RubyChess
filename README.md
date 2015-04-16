@@ -1,1 +1,1 @@
-This is a 2-player chess game written in Ruby. To play, download the zip file and unzip it. Then change to the RubyChess directory in the command line, and run "ruby chess.rb" to play the game.
+This is a 2-player chess game written in Ruby. To play it, click the link on the right side of this webpage to download the zip file. After unzipping the downloaded file, change to the RubyChess directory in the command line, and enter "ruby chess.rb" to play the game. The onscreen directions take care of the rest.
